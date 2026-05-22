@@ -6,6 +6,7 @@ import 'login_screen.dart';
 import 'saved_addresses_screen.dart';
 import 'payment_methods_screen.dart';
 import 'food_preferences_screen.dart';
+import 'terms_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -249,7 +250,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             iconColor: const Color(0xFF6B2D8B),
             iconBg: const Color(0xFFEDE9FF),
             label: 'Terms & Conditions',
-            onTap: () {},
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (_) => const TermsScreen())),
           ),
           const Divider(height: 1, indent: 56, color: Color(0xFFF0F0F0)),
           _menuItem(
