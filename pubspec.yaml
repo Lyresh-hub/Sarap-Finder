@@ -21,20 +21,48 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/acai_smoothie_bowl.jpg
+    - assets/images/adobong_manok.jpg
+    - assets/images/avocado_power_bowl.jpg
+    - assets/images/banana_cue.jpg
+    - assets/images/bbq_bacon_burger.jpg
+    - assets/images/bbq_pork_ribs.jpg
     - assets/images/buko_pandan_shake.jpg
+    - assets/images/calamansi_juice.jpg
+    - assets/images/chia_seed_pudding.jpg
+    - assets/images/chicken_inasal.jpg
     - assets/images/chicken_inasal_pecho.png
+    - assets/images/classic_smash_burger.jpg
+    - assets/images/cold_brew_coffee.jpg
+    - assets/images/crispy_chicken_sandwich.jpg
     - assets/images/fire_grill_bbq.png
+    - assets/images/fishball_at_kwekkwek.jpg
+    - assets/images/garden_fresh_salad.jpg
     - assets/images/google_logo.png
     - assets/images/green_leaf_cafe.png
+    - assets/images/grilled_corn.jpg
+    - assets/images/halo_halo.jpg
+    - assets/images/iced_sago_gulaman.jpg
     - assets/images/inihaw_na_liempo.png
+    - assets/images/inihaw_na_pusit.jpg
     - assets/images/kanto_refreshments.png
+    - assets/images/kare_kare.jpg
+    - assets/images/loaded_fries.jpg
     - assets/images/lolas_eatery.png
     - assets/images/mang-inasal_halohalo.png
+    - assets/images/mango_sago.jpg
     - assets/images/manila_grill.png
+    - assets/images/milkshake.jpg
+    - assets/images/onion_rings.jpg
+    - assets/images/pinakbet.jpg
+    - assets/images/pork_belly_bbq.jpg
+    - assets/images/puto_at_kutsinta.jpg
     - assets/images/saraplogo.png
+    - assets/images/sinigang_na_baboy.jpg
     - assets/images/sizzling_pork_sisig.png
     - assets/images/titas_mais_con_hielo.png
     - assets/images/urban_bites.png
+    - assets/images/veggie_wrap.jpg
     - assets/images/titas_mais_con_hielo.png
     - assets/images/buko_pandan_shake.jpg
     

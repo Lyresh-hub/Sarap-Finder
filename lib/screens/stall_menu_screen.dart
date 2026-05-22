@@ -124,6 +124,7 @@ class StallCatalogue {
         rawPrice: 180,
         emoji: '🍲',
         placeholderColor: Color(0xFF7EC8A4),
+        imagePath: 'assets/images/sinigang_na_baboy.jpg',
       ),
       MenuItemData(
         name: 'Adobong Manok',
@@ -132,6 +133,7 @@ class StallCatalogue {
         rawPrice: 150,
         emoji: '🍗',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/adobong_manok.jpg',
       ),
       MenuItemData(
         name: 'Kare-Kare',
@@ -140,6 +142,7 @@ class StallCatalogue {
         rawPrice: 220,
         emoji: '🥜',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/kare_kare.jpg',
       ),
       MenuItemData(
         name: 'Pinakbet',
@@ -148,6 +151,7 @@ class StallCatalogue {
         rawPrice: 120,
         emoji: '🥦',
         placeholderColor: Color(0xFF8BC48A),
+        imagePath: 'assets/images/pinakbet.jpg',
       ),
       MenuItemData(
         name: 'Halo-Halo',
@@ -156,6 +160,7 @@ class StallCatalogue {
         rawPrice: 95,
         emoji: '🍧',
         placeholderColor: Color(0xFFE8A0A0),
+        imagePath: 'assets/images/halo_halo.jpg',
       ),
       MenuItemData(
         name: 'Puto at Kutsinta',
@@ -164,6 +169,7 @@ class StallCatalogue {
         rawPrice: 60,
         emoji: '🍮',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/puto_at_kutsinta.jpg',
       ),
     ],
   );
@@ -202,6 +208,7 @@ class StallCatalogue {
         rawPrice: 90,
         emoji: '🥭',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/mango_sago.jpg',
       ),
       MenuItemData(
         name: 'Fishball & Kwek-Kwek',
@@ -210,6 +217,7 @@ class StallCatalogue {
         rawPrice: 40,
         emoji: '🍡',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/fishball_at_kwekkwek.jpg',
       ),
       MenuItemData(
         name: 'Banana Cue',
@@ -218,6 +226,7 @@ class StallCatalogue {
         rawPrice: 25,
         emoji: '🍌',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/banana_cue.jpg',
       ),
       MenuItemData(
         name: 'Calamansi Juice',
@@ -226,6 +235,7 @@ class StallCatalogue {
         rawPrice: 45,
         emoji: '🍋',
         placeholderColor: Color(0xFF8BC48A),
+        imagePath: 'assets/images/calamansi_juice.jpg',
       ),
     ],
   );
@@ -246,6 +256,7 @@ class StallCatalogue {
         rawPrice: 280,
         emoji: '🍔',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/classic_smash_burger.jpg',
       ),
       MenuItemData(
         name: 'Crispy Chicken Sandwich',
@@ -254,6 +265,7 @@ class StallCatalogue {
         rawPrice: 250,
         emoji: '🥪',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/crispy_chicken_sandwich.jpg',
       ),
       MenuItemData(
         name: 'Loaded Fries',
@@ -262,6 +274,7 @@ class StallCatalogue {
         rawPrice: 150,
         emoji: '🍟',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/loaded_fries.jpg',
       ),
       MenuItemData(
         name: 'BBQ Bacon Burger',
@@ -270,6 +283,7 @@ class StallCatalogue {
         rawPrice: 320,
         emoji: '🥓',
         placeholderColor: Color(0xFFB05E3A),
+        imagePath: 'assets/images/bbq_bacon_burger.jpg',
       ),
       MenuItemData(
         name: 'Milkshake',
@@ -278,6 +292,7 @@ class StallCatalogue {
         rawPrice: 120,
         emoji: '🥛',
         placeholderColor: Color(0xFFE8A0A0),
+        imagePath: 'assets/images/milkshake.jpg',
       ),
       MenuItemData(
         name: 'Onion Rings',
@@ -286,6 +301,7 @@ class StallCatalogue {
         rawPrice: 90,
         emoji: '🧅',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/onion_rings.jpg',
       ),
     ],
   );
@@ -306,6 +322,7 @@ class StallCatalogue {
         rawPrice: 220,
         emoji: '🥩',
         placeholderColor: Color(0xFFB05E3A),
+        imagePath: 'assets/images/pork_belly_bbq.jpg',
       ),
       MenuItemData(
         name: 'Chicken Inasal',
@@ -314,6 +331,7 @@ class StallCatalogue {
         rawPrice: 180,
         emoji: '🍗',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/chicken_inasal.jpg',
       ),
       MenuItemData(
         name: 'Inihaw na Pusit',
@@ -322,6 +340,7 @@ class StallCatalogue {
         rawPrice: 200,
         emoji: '🦑',
         placeholderColor: Color(0xFF7EC8A4),
+        imagePath: 'assets/images/inihaw_na_pusit.jpg',
       ),
       MenuItemData(
         name: 'BBQ Pork Ribs',
@@ -330,6 +349,7 @@ class StallCatalogue {
         rawPrice: 380,
         emoji: '🍖',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/bbq_pork_ribs.jpg',
       ),
       MenuItemData(
         name: 'Grilled Corn',
@@ -338,6 +358,7 @@ class StallCatalogue {
         rawPrice: 55,
         emoji: '🌽',
         placeholderColor: Color(0xFF8BC48A),
+        imagePath: 'assets/images/grilled_corn.jpg',
       ),
       MenuItemData(
         name: 'Iced Sago Gulaman',
@@ -346,6 +367,7 @@ class StallCatalogue {
         rawPrice: 40,
         emoji: '🧋',
         placeholderColor: Color(0xFFE8A0A0),
+        imagePath: 'assets/images/iced_sago_gulaman.jpg',
       ),
     ],
   );
@@ -366,6 +388,7 @@ class StallCatalogue {
         rawPrice: 220,
         emoji: '🥑',
         placeholderColor: Color(0xFF8BC48A),
+        imagePath: 'assets/images/avocado_power_bowl.jpg',
       ),
       MenuItemData(
         name: 'Garden Fresh Salad',
@@ -374,6 +397,7 @@ class StallCatalogue {
         rawPrice: 180,
         emoji: '🥗',
         placeholderColor: Color(0xFF7EC8A4),
+        imagePath: 'assets/images/garden_fresh_salad.jpg',
       ),
       MenuItemData(
         name: 'Veggie Wrap',
@@ -382,6 +406,7 @@ class StallCatalogue {
         rawPrice: 160,
         emoji: '🌯',
         placeholderColor: Color(0xFFE8C56A),
+        imagePath: 'assets/images/veggie_wrap.jpg',
       ),
       MenuItemData(
         name: 'Acai Smoothie Bowl',
@@ -390,6 +415,7 @@ class StallCatalogue {
         rawPrice: 195,
         emoji: '🫐',
         placeholderColor: Color(0xFFE8A0A0),
+        imagePath: 'assets/images/acai_smoothie_bowl.jpg',
       ),
       MenuItemData(
         name: 'Cold Brew Coffee',
@@ -398,6 +424,7 @@ class StallCatalogue {
         rawPrice: 110,
         emoji: '☕',
         placeholderColor: Color(0xFFD4A96A),
+        imagePath: 'assets/images/cold_brew_coffee.jpg',
       ),
       MenuItemData(
         name: 'Chia Seed Pudding',
@@ -406,6 +433,7 @@ class StallCatalogue {
         rawPrice: 130,
         emoji: '🍮',
         placeholderColor: Color(0xFF8BC48A),
+        imagePath: 'assets/images/chia_seed_pudding.jpg',
       ),
     ],
   );
