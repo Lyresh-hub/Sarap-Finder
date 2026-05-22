@@ -33,6 +33,8 @@ class _BrowseScreenState extends State<BrowseScreen> {
       tagColor: Color(0xFF00C9A7),
       placeholderEmoji: '🍔',
       placeholderColor: Color(0xFFD4A96A),
+      imagePath: 'assets/images/urban_bites.png',
+      stall: StallCatalogue.urbanBites,
     ),
     _StallCard(
       name: 'Fire Grill BBQ',
@@ -44,6 +46,8 @@ class _BrowseScreenState extends State<BrowseScreen> {
       tagColor: Color(0xFFFF8C42),
       placeholderEmoji: '🍖',
       placeholderColor: Color(0xFFB05E3A),
+      imagePath: 'assets/images/fire_grill_bbq.png',
+      stall: StallCatalogue.fireGrillBbq,
     ),
     _StallCard(
       name: 'Green Leaf Cafe',
@@ -55,6 +59,8 @@ class _BrowseScreenState extends State<BrowseScreen> {
       tagColor: Color(0xFF6B2D8B),
       placeholderEmoji: '🥗',
       placeholderColor: Color(0xFF7EC8A4),
+      imagePath: 'assets/images/green_leaf_cafe.png',
+      stall: StallCatalogue.greenLeafCafe,
     ),
   ];
 
@@ -276,7 +282,7 @@ class _BrowseScreenState extends State<BrowseScreen> {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const StallMenuScreen()),
+        MaterialPageRoute(builder: (_) => StallMenuScreen(stall: stall.stall)),
       ),
       child: Container(
       margin: const EdgeInsets.only(bottom: 16),
@@ -294,21 +300,47 @@ class _BrowseScreenState extends State<BrowseScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image placeholder
+          // Image
           Stack(
             children: [
-              Container(
-                height: 160,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: stall.placeholderColor.withValues(alpha: 0.25),
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(16)),
-                ),
-                child: Center(
-                  child: Text(stall.placeholderEmoji,
-                      style: const TextStyle(fontSize: 72)),
-                ),
+              ClipRRect(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(16)),
+                child: stall.imagePath != null
+                    ? Image.asset(
+                        stall.imagePath!,
+                        height: 160,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => Container(
+                          height: 160,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: stall.placeholderColor
+                                .withValues(alpha: 0.25),
+                            borderRadius: const BorderRadius.vertical(
+                                top: Radius.circular(16)),
+                          ),
+                          child: Center(
+                            child: Text(stall.placeholderEmoji,
+                                style: const TextStyle(fontSize: 72)),
+                          ),
+                        ),
+                      )
+                    : Container(
+                        height: 160,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              stall.placeholderColor.withValues(alpha: 0.25),
+                          borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(16)),
+                        ),
+                        child: Center(
+                          child: Text(stall.placeholderEmoji,
+                              style: const TextStyle(fontSize: 72)),
+                        ),
+                      ),
               ),
               // Rating badge
               Positioned(
@@ -482,6 +514,8 @@ class _Craving {
 class _StallCard {
   final String name, distance, cuisine, rating, time, tag, placeholderEmoji;
   final Color tagColor, placeholderColor;
+  final String? imagePath;
+  final StallData stall;
   const _StallCard({
     required this.name,
     required this.distance,
@@ -492,5 +526,7 @@ class _StallCard {
     required this.tagColor,
     required this.placeholderEmoji,
     required this.placeholderColor,
+    required this.stall,
+    this.imagePath,
   });
 }

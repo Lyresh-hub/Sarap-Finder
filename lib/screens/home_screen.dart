@@ -56,6 +56,8 @@ class HomeScreen extends StatelessWidget {
                       distance: '1.2 km away',
                       time: '15-20 mins',
                       timeColor: const Color(0xFFFF8C42),
+                      imagePath: 'assets/images/lolas_eatery.png',
+                      stall: StallCatalogue.lolasEatery,
                     ),
                     const SizedBox(height: 12),
                     _buildStallCard(context,
@@ -65,6 +67,8 @@ class HomeScreen extends StatelessWidget {
                       distance: '2.5 km away',
                       time: '25-35 mins',
                       timeColor: const Color(0xFFE05C5C),
+                      imagePath: 'assets/images/kanto_refreshments.png',
+                      stall: StallCatalogue.kantoRefreshments,
                     ),
                     const SizedBox(height: 24),
                   ],
@@ -82,11 +86,10 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(18, 14, 18, 0),
       child: Row(
         children: [
-          // Logo + name
           Image.asset(
             'assets/images/saraplogo.png',
             height: 28,
-            errorBuilder: (_, _, _) => const Icon(
+            errorBuilder: (_, __, ___) => const Icon(
               Icons.location_on,
               color: Color(0xFF6B2D8B),
               size: 26,
@@ -102,7 +105,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          // Avatar
           Container(
             width: 38,
             height: 38,
@@ -130,8 +132,8 @@ class HomeScreen extends StatelessWidget {
         ),
         children: [
           TextSpan(text: '$_greeting\n'),
-          TextSpan(text: 'Beat the heat with\n'),
-          TextSpan(
+          const TextSpan(text: 'Beat the heat with\n'),
+          const TextSpan(
             text: 'these cold treats',
             style: TextStyle(color: Color(0xFF6B2D8B)),
           ),
@@ -215,6 +217,7 @@ class HomeScreen extends StatelessWidget {
         rating: '4.8',
         color: const Color(0xFFD4A96A),
         emoji: '🍧',
+        imagePath: 'assets/images/mang-inasal_halohalo.png',
       ),
       _FoodItem(
         name: "Tita's Mais Con Hielo",
@@ -223,6 +226,7 @@ class HomeScreen extends StatelessWidget {
         rating: '4.6',
         color: const Color(0xFF7EC8A4),
         emoji: '🌽',
+        imagePath: 'assets/images/titas_mais_con_hielo.png',
       ),
       _FoodItem(
         name: 'Buko Pandan Shake',
@@ -231,6 +235,7 @@ class HomeScreen extends StatelessWidget {
         rating: '4.7',
         color: const Color(0xFF8BC48A),
         emoji: '🥤',
+        imagePath: 'assets/images/buko_pandan_shake.jpg',
       ),
     ];
 
@@ -263,21 +268,36 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image placeholder
           Stack(
             children: [
-              Container(
-                height: 110,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: item.color.withValues(alpha: 0.3),
-                  borderRadius:
-                      const BorderRadius.vertical(top: Radius.circular(16)),
-                ),
-                child: Center(
-                  child: Text(item.emoji,
-                      style: const TextStyle(fontSize: 52)),
-                ),
+              ClipRRect(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(16)),
+                child: item.imagePath != null
+                    ? Image.asset(
+                        item.imagePath!,
+                        height: 110,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => Container(
+                          height: 110,
+                          width: double.infinity,
+                          color: item.color.withValues(alpha: 0.3),
+                          child: Center(
+                            child: Text(item.emoji,
+                                style: const TextStyle(fontSize: 52)),
+                          ),
+                        ),
+                      )
+                    : Container(
+                        height: 110,
+                        width: double.infinity,
+                        color: item.color.withValues(alpha: 0.3),
+                        child: Center(
+                          child: Text(item.emoji,
+                              style: const TextStyle(fontSize: 52)),
+                        ),
+                      ),
               ),
               // Rating badge
               Positioned(
@@ -332,8 +352,7 @@ class HomeScreen extends StatelessWidget {
                   item.desc,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      fontSize: 11, color: Colors.black45),
+                  style: const TextStyle(fontSize: 11, color: Colors.black45),
                 ),
                 const SizedBox(height: 6),
                 Row(
@@ -386,121 +405,131 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStallCard(BuildContext context, {
+  Widget _buildStallCard(
+    BuildContext context, {
     required String name,
     required String tags,
     required String rating,
     required String distance,
     required String time,
     required Color timeColor,
+    required String imagePath,
+    required StallData stall,
   }) {
     return GestureDetector(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (_) => const StallMenuScreen()),
+        MaterialPageRoute(builder: (_) => StallMenuScreen(stall: stall)),
       ),
       child: Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.06),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          // Image placeholder
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              color: const Color(0xFFEDE9FF),
-              borderRadius: BorderRadius.circular(12),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(14),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.06),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
             ),
-            child: const Icon(Icons.storefront_outlined,
-                color: Color(0xFF6B2D8B), size: 34),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        name,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1A1A2E),
+          ],
+        ),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                imagePath,
+                width: 70,
+                height: 70,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFEDE9FF),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: const Icon(Icons.storefront_outlined,
+                      color: Color(0xFF6B2D8B), size: 34),
+                ),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF1A1A2E),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 3),
-                      decoration: BoxDecoration(
-                        color: timeColor.withValues(alpha: 0.15),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.access_time_rounded,
-                              size: 11, color: timeColor),
-                          const SizedBox(width: 3),
-                          Text(
-                            time,
-                            style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: timeColor,
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 3),
+                        decoration: BoxDecoration(
+                          color: timeColor.withValues(alpha: 0.15),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.access_time_rounded,
+                                size: 11, color: timeColor),
+                            const SizedBox(width: 3),
+                            Text(
+                              time,
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                                color: timeColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  tags,
-                  style: const TextStyle(
-                      fontSize: 12, color: Colors.black45),
-                ),
-                const SizedBox(height: 5),
-                Row(
-                  children: [
-                    const Icon(Icons.star_rounded,
-                        size: 13, color: Color(0xFFFFB800)),
-                    const SizedBox(width: 3),
-                    Text(
-                      rating,
-                      style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF1A1A2E)),
-                    ),
-                    const SizedBox(width: 8),
-                    const Icon(Icons.circle, size: 4, color: Colors.black26),
-                    const SizedBox(width: 8),
-                    Text(
-                      distance,
-                      style: const TextStyle(
-                          fontSize: 12, color: Colors.black45),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  const SizedBox(height: 3),
+                  Text(
+                    tags,
+                    style: const TextStyle(fontSize: 12, color: Colors.black45),
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      const Icon(Icons.star_rounded,
+                          size: 13, color: Color(0xFFFFB800)),
+                      const SizedBox(width: 3),
+                      Text(
+                        rating,
+                        style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF1A1A2E)),
+                      ),
+                      const SizedBox(width: 8),
+                      const Icon(Icons.circle, size: 4, color: Colors.black26),
+                      const SizedBox(width: 8),
+                      Text(
+                        distance,
+                        style: const TextStyle(
+                            fontSize: 12, color: Colors.black45),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
       ),
     );
   }
@@ -509,6 +538,8 @@ class HomeScreen extends StatelessWidget {
 class _FoodItem {
   final String name, desc, price, rating, emoji;
   final Color color;
+  final String? imagePath;
+
   const _FoodItem({
     required this.name,
     required this.desc,
@@ -516,6 +547,7 @@ class _FoodItem {
     required this.rating,
     required this.color,
     required this.emoji,
+    this.imagePath,
   });
 }
 
@@ -562,23 +594,21 @@ class _BottomNav extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon,
-            size: 24,
-            color: active
-                ? const Color(0xFF6B2D8B)
-                : Colors.black38),
-        const SizedBox(height: 3),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 11,
-            fontWeight: active ? FontWeight.w600 : FontWeight.normal,
-            color: active ? const Color(0xFF6B2D8B) : Colors.black38,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon,
+              size: 24,
+              color: active ? const Color(0xFF6B2D8B) : Colors.black38),
+          const SizedBox(height: 3),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: active ? FontWeight.w600 : FontWeight.normal,
+              color: active ? const Color(0xFF6B2D8B) : Colors.black38,
+            ),
           ),
-        ),
-      ],
+        ],
       ),
     );
   }
